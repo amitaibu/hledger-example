@@ -22,7 +22,6 @@ commodity USD:BOI
 commodity ILS:BOJ
   format ILS:BOJ 9,999,999.00
 
-
 ; We have main accounts for ILS (BOI) and USD (BOA). We want want to
 ; keep knowledge of the ILS and USD in BOJ. However if we will add them under for
 ; example `assets:banks:israel:boi:ils` then when we group
