@@ -36,7 +36,7 @@ commodity ILS:BOJ
     (assets:banks:israel:boi:usd)               USD:BOI500
 
 2019/01/01 set initial assets balance, BOA
-    (assets:banks:us)                               USD1000
+    (assets:banks:us:boa)                               USD1000
 
 2019/01/01 set initial assets balance, ILS:BOJ
     (assets:banks-ancillary:israel:boj:ils)        ILS:BOJ300
@@ -63,7 +63,7 @@ commodity ILS:BOJ
 
 ; Here we tell hledger the conversion rate we got from USD to ILS.
 2019/11/08 Convert the money that was transfered from USD to ILS
-    assets:banks:israel:boi:ils        ILS340 @@ BOI:USD100
+    assets:banks:israel:boi:ils        ILS340 @@ USD:BOI100
     assets:banks:israel:boi:ils
 
 ; `cc:1234` means in this context Credit card ending with `1234`.
