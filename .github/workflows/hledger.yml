@@ -1,0 +1,19 @@
+name: Validate Ledger
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    # We don't need the most up to date hledger, so we can apt-get instead
+    # of using Stack.
+    - name: Install hledger
+      run: sudo apt install hledger
+
+    - name: Test hledger file
+      run: hledger print -f hledger.journal --depth=2
