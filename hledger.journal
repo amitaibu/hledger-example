@@ -36,10 +36,10 @@ commodity ILS:BOJ
     (assets:banks:israel:boi:usd)               USD:BOI500
 
 2019/01/01 set initial assets balance, BOA
-    (assets:banks:us:boa)                               USD1000
+    (assets:banks:us:boa)                       USD1000
 
 2019/01/01 set initial assets balance, ILS:BOJ
-    (assets:banks-ancillary:israel:boj:ils)        ILS:BOJ300
+    (assets:banks-ancillary:israel:boj:ils)     ILS:BOJ300
 
 2019/01/01 set initial assets balance, USD:BOJ
     (assets:banks-ancillary:israel:boi:usd)     USD:BOJ50
@@ -48,23 +48,23 @@ commodity ILS:BOJ
 ;; 2019 Cash flow starts here.
 ;;
 
-2019/02/01 Israel Salaries, Janurary 2019
+2019/02/05 Israel Salaries, Janurary 2019
     expenses:israel:salary     ILS2000
     assets:banks:israel:boi:ils
 
-2019/02/01 US Salaries, Janurary 2019
-    expenses:us:salary     USD2000
+2019/02/05 US Salaries, Janurary 2019
+    expenses:us:salary     USD700
     assets:banks:us:boa
 
 ; We transfer USD, but we mark it with a different commodity in Israel.
-2019/11/08 Transfer from US to Israel
-    assets:banks:israel:boi:usd  USD:BOI1000
-    assets:banks:us:boa     USD-1000
+2019/02/08 Transfer from US to Israel
+    assets:banks:israel:boi:usd  USD:BOI200
+    assets:banks:us:boa     USD-200
 
 ; Here we tell hledger the conversion rate we got from USD to ILS.
-2019/11/08 Convert the money that was transfered from USD to ILS
+2019/02/08 Convert the money that was transfered from USD to ILS
     assets:banks:israel:boi:ils        ILS340 @@ USD:BOI100
-    assets:banks:israel:boi:ils
+    assets:banks:israel:boi:usd
 
 ; `cc:1234` means in this context Credit card ending with `1234`.
 2019/02/15 Credit card ILS, Janurary 2019
@@ -72,5 +72,11 @@ commodity ILS:BOJ
     assets:banks:israel:boi:ils
 
 2019/02/15 Credit card USD, Janurary 2019
-    liabilities:israel:cc:1234:ils                USD:BOI150
-    assets:banks:israel:boi:ils
+    liabilities:israel:cc:1234:usd                USD:BOI150
+    assets:banks:israel:boi:usd
+
+
+; Some date in the future
+2025/02/05 US Salaries, Janurary 2025
+    expenses:us:salary     USD700
+    assets:banks:us:boa
