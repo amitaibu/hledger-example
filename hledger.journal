@@ -58,7 +58,7 @@ commodity ILS:BOJ
 
 ; We transfer USD, but we mark it with a different commodity in Israel.
 2019/11/08 Transfer from US to Israel
-    assets:banks:israel:boi:usd  USD:BOI-1000
+    assets:banks:israel:boi:usd  USD:BOI1000
     assets:banks:us:boa     USD-1000
 
 ; Here we tell hledger the conversion rate we got from USD to ILS.
