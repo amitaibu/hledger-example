@@ -25,7 +25,7 @@ fi
 
 if [[ 1 -ne $(fgrep "$SEPARATOR" "$LEDGER_FILE" | wc -l) ]];
 then
-  echo "The ledger file might be corrupted or incompatible with this script."
+  echo "The expected separator [show-separator] is missing or appears more than once."
   exit 1
 fi
 
