@@ -44,9 +44,10 @@ commodity ILS:BOJ
 2019/01/01 set initial assets balance, USD:BOJ
     (assets:banks-ancillary:israel:boi:usd)     USD:BOJ50
 
-;;
+
 ;; 2019 Cash flow starts here.
 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 2019/02/05 Israel Salaries, Janurary 2019
     expenses:israel:salary     ILS2000
