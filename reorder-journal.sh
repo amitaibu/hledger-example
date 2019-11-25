@@ -18,6 +18,7 @@ TMPFILE_SKELETON=$(mktemp /tmp/hledger.XXXXXX)
 hledger print -f "$LEDGER_FILE" > "$TMPFILE_SORTED"
 
 sed '/;;;;;;;;;;;;;;;;;;;;;;;;;;;;;/q' "$LEDGER_FILE" > "$TMPFILE_SKELETON"
+echo "" >> "$TMPFILE_SKELETON"
 
 cat "$TMPFILE_SKELETON" "$TMPFILE_SORTED" > "$LEDGER_FILE"
 

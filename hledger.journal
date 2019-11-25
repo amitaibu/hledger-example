@@ -33,6 +33,7 @@ commodity ILS:BOJ
 ;; Cash flow starts here.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 2019/01/01 set initial assets balance, ILS:BOI
     (assets:banks:israel:boi:ils)    ILS 10,000.00
 
