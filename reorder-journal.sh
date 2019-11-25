@@ -8,7 +8,7 @@ fi
 LEDGER_FILE="$1"
 
 if [[ -z "$LEDGER_FILE" ]]; then
-  echo "Please specify the ledger file in the first argument. ./reorder-journal.sh myledger.journal"
+  echo "Please specify the ledger file in the first argument. ./reorder-journal.sh hledger.journal"
   exit 1
 fi
 
