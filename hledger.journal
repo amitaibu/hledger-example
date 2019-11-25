@@ -13,6 +13,9 @@ P 2019-01-01 ILS:BOJ ILS1
 commodity ILS
   format ILS 9,999,999.00
 
+commodity USD
+  format USD 9,999,999.00
+
 commodity USD:BOI
   format USD:BOI 9,999,999.00
 
@@ -29,54 +32,65 @@ commodity ILS:BOJ
 ; what's the exact state of the main banks.
 ; For this reason we register them as `assets:banks-ancillary`.
 
+
+;; Cash flow starts here.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 2019/01/01 set initial assets balance, ILS:BOI
-    (assets:banks:israel:boi:ils)               ILS10,000.00
+    (assets:banks:israel:boi:ils)    ILS 10,000.00
 
 2019/01/01 set initial assets balance, USD:BOI
-    (assets:banks:israel:boi:usd)               USD:BOI500
+    (assets:banks:israel:boi:usd)    USD:BOI 500.00
 
 2019/01/01 set initial assets balance, BOA
-    (assets:banks:us:boa)                       USD1000
+    (assets:banks:us:boa)         USD1000
 
 2019/01/01 set initial assets balance, ILS:BOJ
-    (assets:banks-ancillary:israel:boj:ils)     ILS:BOJ300
+    (assets:banks-ancillary:israel:boj:ils)    ILS:BOJ 300.00
 
 2019/01/01 set initial assets balance, USD:BOJ
-    (assets:banks-ancillary:israel:boi:usd)     USD:BOJ50
+    (assets:banks-ancillary:israel:boi:usd)       USD:BOJ50
 
-;;
-;; 2019 Cash flow starts here.
-;;
+2019/01/01 set initial assets balance, ILS:BOI
+    (assets:banks:israel:boi:ils)    ILS 10,000.00
+
+2019/01/01 set initial assets balance, USD:BOI
+    (assets:banks:israel:boi:usd)    USD:BOI 500.00
+
+2019/01/01 set initial assets balance, BOA
+    (assets:banks:us:boa)         USD1000
+
+2019/01/01 set initial assets balance, ILS:BOJ
+    (assets:banks-ancillary:israel:boj:ils)    ILS:BOJ 300.00
+
+2019/01/01 set initial assets balance, USD:BOJ
+    (assets:banks-ancillary:israel:boi:usd)       USD:BOJ50
 
 2019/02/05 Israel Salaries, Janurary 2019
-    expenses:israel:salary     ILS2000
+    expenses:israel:salary         ILS 2,000.00
     assets:banks:israel:boi:ils
 
 2019/02/05 US Salaries, Janurary 2019
-    expenses:us:salary     USD700
+    expenses:us:salary           USD700
     assets:banks:us:boa
 
-; We transfer USD, but we mark it with a different commodity in Israel.
 2019/02/08 Transfer from US to Israel
-    assets:banks:israel:boi:usd  USD:BOI200
-    assets:banks:us:boa     USD-200
+    assets:banks:israel:boi:usd    USD:BOI 200.00
+    assets:banks:us:boa                   USD-200
 
-; Here we tell hledger the conversion rate we got from USD to ILS.
 2019/02/08 Convert the money that was transfered from USD to ILS
-    assets:banks:israel:boi:ils        ILS340 @@ USD:BOI100
+    assets:banks:israel:boi:ils    ILS 340.00 @@ USD:BOI100
     assets:banks:israel:boi:usd
 
-; `cc:1234` means in this context Credit card ending with `1234`.
 2019/02/15 Credit card ILS, Janurary 2019
-    liabilities:israel:cc:1234:ils                ILS600
+    liabilities:israel:cc:1234:ils      ILS 600.00
     assets:banks:israel:boi:ils
 
 2019/02/15 Credit card USD, Janurary 2019
-    liabilities:israel:cc:1234:usd                USD:BOI150
+    liabilities:israel:cc:1234:usd    USD:BOI 150.00
     assets:banks:israel:boi:usd
 
-
-; Some date in the future
 2025/02/05 US Salaries, Janurary 2025
-    expenses:us:salary     USD700
+    expenses:us:salary           USD700
     assets:banks:us:boa
