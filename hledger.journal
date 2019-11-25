@@ -29,25 +29,25 @@ commodity ILS:BOJ
 ; what's the exact state of the main banks.
 ; For this reason we register them as `assets:banks-ancillary`.
 
-2019/01/01 set initial assets balance, ILS:BOI
-    (assets:banks:israel:boi:ils)               ILS10,000.00
 
-2019/01/01 set initial assets balance, USD:BOI
-    (assets:banks:israel:boi:usd)               USD:BOI500
-
-2019/01/01 set initial assets balance, BOA
-    (assets:banks:us:boa)                       USD1000
-
-2019/01/01 set initial assets balance, ILS:BOJ
-    (assets:banks-ancillary:israel:boj:ils)     ILS:BOJ300
-
-2019/01/01 set initial assets balance, USD:BOJ
-    (assets:banks-ancillary:israel:boi:usd)     USD:BOJ50
-
-
-;; 2019 Cash flow starts here.
+;; Cash flow starts here.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+2019/01/01 set initial assets balance, ILS:BOI
+    (assets:banks:israel:boi:ils)    ILS 10,000.00
+
+2019/01/01 set initial assets balance, USD:BOI
+    (assets:banks:israel:boi:usd)    USD:BOI 500.00
+
+2019/01/01 set initial assets balance, BOA
+    (assets:banks:us:boa)         USD1000
+
+2019/01/01 set initial assets balance, ILS:BOJ
+    (assets:banks-ancillary:israel:boj:ils)    ILS:BOJ 300.00
+
+2019/01/01 set initial assets balance, USD:BOJ
+    (assets:banks-ancillary:israel:boi:usd)       USD:BOJ50
+
 2019/01/01 set initial assets balance, ILS:BOI
     (assets:banks:israel:boi:ils)    ILS 10,000.00
 
