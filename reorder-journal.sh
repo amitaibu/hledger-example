@@ -7,9 +7,13 @@ fi
 
 LEDGER_FILE="$1"
 
-TMPFILE=$(mktemp /tmp/hledger.XXXXXX)
+TMPFILE_SORTED=$(mktemp /tmp/hledger.XXXXXX)
+TMPFILE_SKELETON=$(mktemp /tmp/hledger.XXXXXX)
 
-hledger print -f "$LEDGER_FILE" >> "$TMPFILE"
+hledger print -f "$LEDGER_FILE" > "$TMPFILE_SORTED"
 
+sed '/;;;;;;;;;;;;;;;;;;;;;;;;;;;;;/q' "$LEDGER_FILE" > "$TMPFILE_SKELETON"
 
-rm "$TMPFILE"
+cat "$TMPFILE_SKELETON" "$TMPFILE_SORTED" > "$LEDGER_FILE"
+
+rm "$TMPFILE_SORTED" "$TMPFILE_SKELETON"
