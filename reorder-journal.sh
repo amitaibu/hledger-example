@@ -7,6 +7,11 @@ fi
 
 LEDGER_FILE="$1"
 
+if [[ -z "$LEDGER_FILE" ]]; then
+  echo "Please specify the ledger file in the first argument. ./reorder-journal.sh myledger.journal"
+  exit 1
+fi
+
 TMPFILE_SORTED=$(mktemp /tmp/hledger.XXXXXX)
 TMPFILE_SKELETON=$(mktemp /tmp/hledger.XXXXXX)
 
