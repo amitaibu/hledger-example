@@ -19,7 +19,7 @@ TMPFILE_SKELETON=$(mktemp /tmp/hledger.XXXXXX)
 if ! hledger print -f "$LEDGER_FILE" > "$TMPFILE_SORTED";
 then
   rm "$TMPFILE_SORTED" "$TMPFILE_SKELETON"
-  echo "The ledger file might be corrupted or incompatible with the current version of hledger."
+  echo "The ledger file is not valid. Run `hledger print` to see the cause of the error."
   exit 1
 fi
 
