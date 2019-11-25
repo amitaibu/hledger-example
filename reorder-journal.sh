@@ -5,6 +5,7 @@ if ! [ -x "$(command -v hledger)" ]; then
   exit 1
 fi
 
+SEPARATOR=";;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 LEDGER_FILE="$1"
 
 if [[ -z "$LEDGER_FILE" ]]; then
@@ -15,9 +16,20 @@ fi
 TMPFILE_SORTED=$(mktemp /tmp/hledger.XXXXXX)
 TMPFILE_SKELETON=$(mktemp /tmp/hledger.XXXXXX)
 
-hledger print -f "$LEDGER_FILE" > "$TMPFILE_SORTED"
+if ! hledger print -f "$LEDGER_FILE" > "$TMPFILE_SORTED";
+then
+  rm "$TMPFILE_SORTED" "$TMPFILE_SKELETON"
+  echo "The ledger file might be corrupted or incompatible with the current version of hledger."
+  exit 1
+fi
 
-sed '/;;;;;;;;;;;;;;;;;;;;;;;;;;;;;/q' "$LEDGER_FILE" > "$TMPFILE_SKELETON"
+if [[ 1 -ne $(fgrep "$SEPARATOR" "$LEDGER_FILE" | wc -l) ]];
+then
+  echo "The ledger file might be corrupted or incompatible with this script."
+  exit 1
+fi
+
+sed '/'$SEPARATOR'/q' "$LEDGER_FILE" > "$TMPFILE_SKELETON"
 echo "" >> "$TMPFILE_SKELETON"
 
 cat "$TMPFILE_SKELETON" "$TMPFILE_SORTED" > "$LEDGER_FILE"
