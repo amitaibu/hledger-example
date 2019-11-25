@@ -13,6 +13,9 @@ P 2019-01-01 ILS:BOJ ILS1
 commodity ILS
   format ILS 9,999,999.00
 
+commodity USD
+  format USD 9,999,999.00
+
 commodity USD:BOI
   format USD:BOI 9,999,999.00
 
@@ -91,4 +94,3 @@ commodity ILS:BOJ
 2025/02/05 US Salaries, Janurary 2025
     expenses:us:salary           USD700
     assets:banks:us:boa
-
