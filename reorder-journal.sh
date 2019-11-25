@@ -19,13 +19,13 @@ TMPFILE_SKELETON=$(mktemp /tmp/hledger.XXXXXX)
 if ! hledger print -f "$LEDGER_FILE" > "$TMPFILE_SORTED";
 then
   rm "$TMPFILE_SORTED" "$TMPFILE_SKELETON"
-  echo "The ledger file is not valid. Run `hledger print` to see the cause of the error."
+  echo "The ledger file is not valid. Run 'hledger print' to see the cause of the error."
   exit 1
 fi
 
 if [[ 1 -ne $(fgrep "$SEPARATOR" "$LEDGER_FILE" | wc -l) ]];
 then
-  echo "The expected separator [show-separator] is missing or appears more than once."
+  echo "The expected separator '$SEPARATOR' is missing or appears more than once."
   exit 1
 fi
 
