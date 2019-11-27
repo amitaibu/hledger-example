@@ -6,14 +6,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
 
-    # We don't need the most up to date hledger, so we can apt-get instead
-    # of using Stack.
     - name: Install hledger
-      run: sudo apt install hledger
+      run: docker pull dastapov/hledger
 
     - name: Test hledger file
-      run: hledger print -f hledger.journal --depth=2
+      run: docker run --rm -v $(pwd):/data dastapov/hledger hledger -f /data/hledger.journal print --depth 2
