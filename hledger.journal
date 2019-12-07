@@ -87,15 +87,10 @@ commodity ILS:BOJ
     liabilities:israel:cc:1234:ils      ILS 600.00
     assets:banks:israel:boi:ils
 
-; Some date in the future
-2019/02/15 Credit card USD, Janurary 2019
+2019/02/15 Credit card USD, January 2019
     liabilities:israel:cc:1234:usd    USD:BOI 150.00
     assets:banks:israel:boi:usd
 
 2025/02/05 US Salaries, January 2025
     expenses:us:salary           USD700
     assets:banks:us:boa
-
-2019/02/15 Credit card USD, Janurary 2019
-    liabilities:israel:cc:1234:usd                USD:BOI150
-    assets:banks:israel:boi:usd
