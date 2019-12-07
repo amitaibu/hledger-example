@@ -25,7 +25,7 @@ commodity USD:BOI
 commodity ILS:BOJ
   format ILS:BOJ 9,999,999.00
 
-; We have main accounts for ILS (BOI) and USD (BOA). We want want to
+; We have main accounts for ILS (BOI) and USD (BOA). We want to
 ; keep knowledge of the ILS and USD in BOJ. However if we will add them under for
 ; example `assets:banks:israel:boi:ils` then when we group
 ; together by setting depth two 2 (i.e. `assets:banks`) then it won't be clear
@@ -67,11 +67,11 @@ commodity ILS:BOJ
 2019/01/01 set initial assets balance, USD:BOJ
     (assets:banks-ancillary:israel:boi:usd)       USD:BOJ50
 
-2019/02/05 Israel Salaries, Janurary 2019
+2019/02/05 Israel Salaries, January 2019
     expenses:israel:salary         ILS 2,000.00
     assets:banks:israel:boi:ils
 
-2019/02/05 US Salaries, Janurary 2019
+2019/02/05 US Salaries, January 2019
     expenses:us:salary           USD700
     assets:banks:us:boa
 
@@ -83,17 +83,16 @@ commodity ILS:BOJ
     assets:banks:israel:boi:ils    ILS 340.00 @@ USD:BOI100
     assets:banks:israel:boi:usd
 
-2019/02/15 Credit card ILS, Janurary 2019
+2019/02/15 Credit card ILS, January 2019
     liabilities:israel:cc:1234:ils      ILS 600.00
     assets:banks:israel:boi:ils
-
 
 ; Some date in the future
 2019/02/15 Credit card USD, Janurary 2019
     liabilities:israel:cc:1234:usd    USD:BOI 150.00
     assets:banks:israel:boi:usd
 
-2025/02/05 US Salaries, Janurary 2025
+2025/02/05 US Salaries, January 2025
     expenses:us:salary           USD700
     assets:banks:us:boa
 
